@@ -4,7 +4,6 @@
 #include <string>
 #include <sstream>
 
-
 std::string remove_zero(std::string s)
 {
     std::string new_r = "";
@@ -21,7 +20,6 @@ std::string remove_zero(std::string s)
         }
     }
     return new_r;
-
 }
 
 std::string multi(std::string a, std::string b)
@@ -124,6 +122,7 @@ std::string preprocess(std::string s)
 
 }
 
+// 模拟法
 std::string pow(std::string r, int n)
 {
     if (n == 0) {
@@ -140,14 +139,35 @@ std::string pow(std::string r, int n)
     return preprocess(result);
 }
 
+
+// 分治法
+std::string pow2(std::string r, int n)
+{
+    if (n == 0) {
+        return "1";
+    } else if (n == 1) {
+        return r;
+    }else {
+        if (n%2 == 0) {
+            std::string s = pow2(r, n/2);
+            return multi(s, s);
+        }else {
+            std::string s = pow2(r, (n-1)/2);
+            return multi(multi(s, s), r);
+        }
+    }
+
+}
+
 int main()
 {
     std::string r;
     int n;
     while (std::cin >> r >> n)
     {
-        std::string result = pow(r, n);
-        std::cout << result << std::endl;
+        std::string result = pow2(r, n);
+        std::cout << preprocess(result) << std::endl;
+        //std::cout << result << std::endl;
     }
     return 0;
 }
