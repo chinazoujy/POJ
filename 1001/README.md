@@ -25,3 +25,12 @@ x^n = x^(n/2) * x^(n/2) * x   if n%2 == 1
 
 不是最优解...
 
+
+## 3. 优化乘法计算逻辑
+
+见文件main3.cpp
+
+time: 0ms  but memory=664K 
+
+
+

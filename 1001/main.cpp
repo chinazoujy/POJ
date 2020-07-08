@@ -139,7 +139,6 @@ std::string pow(std::string r, int n)
     return preprocess(result);
 }
 
-
 // 分治法
 std::string pow2(std::string r, int n)
 {
@@ -159,13 +158,29 @@ std::string pow2(std::string r, int n)
 
 }
 
+std::string pow3(std::string r, int n)
+{
+    if (n == 0) {
+        return "1";
+    }
+    std::string y = "1";
+    while (n != 0) {
+        if (n % 2) {
+            y = multi(r, y);
+        }
+        r = multi(r, r);
+        n /= 2;
+    }
+    return y;
+}
+
 int main()
 {
     std::string r;
     int n;
     while (std::cin >> r >> n)
     {
-        std::string result = pow2(r, n);
+        std::string result = pow3(r, n);
         std::cout << preprocess(result) << std::endl;
         //std::cout << result << std::endl;
     }
