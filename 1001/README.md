@@ -30,7 +30,7 @@ x^n = x^(n/2) * x^(n/2) * x   if n%2 == 1
 
 见文件main3.cpp
 
-time: 0ms  but memory=664K 
+time: 0ms,  but memory=664K, G++提交模块最小的内存占用是16K, 四十分之一.....
 
 
 
